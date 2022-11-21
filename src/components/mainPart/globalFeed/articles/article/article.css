@@ -1,0 +1,46 @@
+.article {
+    border-top: 1px solid grey;
+    padding-top: 10px;
+    margin-bottom: 30px;;
+    min-width: 450px;
+}
+
+.image img {
+    border-radius: 50%;
+}
+
+.avatar {
+    display: flex;
+    justify-content: flex-start;
+    
+}
+
+.image{
+    align-self: center;
+}
+
+.text h4 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.text {
+    margin-left: 10px;
+}
+
+.article-first-part{
+    display: flex;
+    justify-content: space-between;
+}
+
+.article p  {
+    color: grey;
+    text-align: left;
+    font-size: small;
+}
+
+.article-third-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

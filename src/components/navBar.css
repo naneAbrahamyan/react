@@ -1,0 +1,43 @@
+
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:10px 80px;
+}
+
+.navigation ul {
+    /* margin: 0;
+    padding: 0; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation  li {
+    list-style: none;
+}
+
+
+.navigation  li > * {
+    margin: 10px;
+    text-decoration: none;
+    color:grey
+}
+
+.navigation li Link {
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+    /* color: #565365; */
+    font-weight: 400;
+    font-size: 4em;
+}
+
+
+.logo > *{
+    text-decoration: none;
+    color:green;
+    font-weight: 700;
+    font-size: 20px;
+}

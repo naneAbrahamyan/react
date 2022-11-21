@@ -1,0 +1,13 @@
+.main-part{
+    padding: 3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.global-feed {
+    flex-grow:1;
+}
+.popular-tags{
+  flex-grow:2;
+}

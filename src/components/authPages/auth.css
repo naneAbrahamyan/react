@@ -1,0 +1,18 @@
+.form > * {
+    margin: 3px;
+}
+
+.form {
+    width: 400px;
+}
+
+.auth-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.auth-form  > * {
+    margin: 3px;
+}

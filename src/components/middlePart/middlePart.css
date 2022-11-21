@@ -1,0 +1,21 @@
+.middle-part {
+    display: grid;
+    height: 120px;
+    place-items: center;
+    width: 100%;
+    background-color: green;
+   
+}
+
+.middle-part > * {
+    margin:0;
+    padding: 0;
+}
+.middle-part h1, p  {
+    display: inline-block;
+    margin:0;
+    padding:0;
+    letter-spacing: 0.2px;
+    text-align: center;
+    color:white
+}

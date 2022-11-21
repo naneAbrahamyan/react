@@ -1,0 +1,14 @@
+.popular-tags{
+    width: 200%;
+    background-color: rgb(179, 172, 172);
+    margin: 20px;
+}
+
+.popular-tags > * {
+    margin: 10px;
+}
+
+.popular-tags p{
+    display: inline-block;
+    color:black
+}
