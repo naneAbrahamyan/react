@@ -1,5 +1,6 @@
 import React, {createContext, useEffect, useState} from "react";
 import axios from "axios";
+import { path_URL } from '../../variables';
 
 export const ArticleContext = createContext({
     favorite: " ",
@@ -37,17 +38,16 @@ const ArticleContextProvider = (props) => {
     const offset = (page-1) * limit
     const offset2 = (page2-1) * limit
     const getData = async() =>{
-        const article = await (await (axios.get(`https://api.realworld.io/api/articles?offset=${offset}&limit=${limit}`))).data;
+        const article = await (await (axios.get(`${path_URL}/articles?offset=${offset}&limit=${limit}`))).data;
         setArticleCount(article.articlesCount);
         setArticles(article.articles);
     }
 
     const handleFavoriteClick = async (value) => {
-        const filtered = await (await (axios.get(`https://api.realworld.io/api/articles?tag=${value}&offset=${offset2}&limit=${limit}`))).data;
+        const filtered = await (await (axios.get(`${path_URL}/articles?tag=${value}&offset=${offset2}&limit=${limit}`))).data;
         setClickedTag(value);
         setFilteredData(filtered.articles);
         setArticleCount(filtered.articlesCount);
-        console.log(filtered.articles)
    }
 
    const handleFeedClick = () => {
@@ -64,19 +64,14 @@ const ArticleContextProvider = (props) => {
     }
     useEffect(() => {
         getData();
-      }, []);
-      useEffect(() => {
-        getData();
-        console.log('get Data Worked')
       }, [page]);
-
-      useEffect(() => {
-        handleFavoriteClick(clickedTag);
-        console.log('handle favorite worked')
-      }, [page2]);
+  
+    useEffect(() => {
+      handleFavoriteClick(clickedTag);
+    }, [page2]);
     return (
       <ArticleContext.Provider
-        value={{ tag, setFilteredData, favorite , getData, articles, handleFavoriteClick, limit, articleCount, clickedTag, filteredData, handlePaginationClick, handleFeedClick}}
+        value={{ tag, setFilteredData , getData, articles, handleFavoriteClick, limit, articleCount, clickedTag, filteredData, handlePaginationClick, handleFeedClick}}
       >
         {props.children}
       </ArticleContext.Provider>

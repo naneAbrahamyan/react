@@ -6,17 +6,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ArticleContextProvider from './components/contexts/articleContext';
+import AuthContextProvider from './components/contexts/authContext';
+import UserContextProvider from './components/contexts/userContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ArticleContextProvider>
-  <React.StrictMode>
-    <BrowserRouter>
-       <App />
-    </BrowserRouter>
-  </React.StrictMode>
-  </ArticleContextProvider>
+  <UserContextProvider >
+  <AuthContextProvider>
+      <ArticleContextProvider>
+        <React.StrictMode>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </React.StrictMode>
+      </ArticleContextProvider>
+    </AuthContextProvider>
+  </UserContextProvider>
+  
+
 
 );
 

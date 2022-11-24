@@ -3,13 +3,14 @@ import axios from 'axios';
 import './popularTags.css'
 import Chip from '@mui/material/Chip';
 import { ArticleContext } from '../../contexts/articleContext';
+import { path_URL } from '../../../variables';
 
 
 const PopularTags = () => {
     const [tags, setTags] = useState([]);
   
     async function  fetchTagsFromServer(){
-        const tag = await (await axios.get('https://api.realworld.io/api/tags')).data.tags;
+        const tag = await (await axios.get(`${path_URL}/tags`)).data.tags;
         setTags(tag);
     }
 

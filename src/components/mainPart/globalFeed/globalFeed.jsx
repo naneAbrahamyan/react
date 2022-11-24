@@ -12,7 +12,7 @@ const GlobalFeed = () => {
     return (  
         <div className='global-feed'>
             <div>
-            <Button variant="text" color="success" onClick={handleFeedClick}>Text</Button>
+            <Button variant="text" color="success" onClick={handleFeedClick}>Global Feed</Button>
             {clickedTag ? <Button variant="contained" color="success"> # {clickedTag} </Button> : ""}
             </div>
 

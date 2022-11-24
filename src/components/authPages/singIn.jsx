@@ -1,12 +1,18 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useContext } from 'react';
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import FormHelperText from "@mui/material/FormHelperText"
 import './auth.css'
+import { AuthContext } from '../contexts/authContext';
+import { useNavigate } from 'react-router-dom';
+
 const SignIn = () => {
     const [errorMessage, setErrorMessage] = useState("");
 
-    
+    const {updateToken, signIn} = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
     const [values, setValues] = useState({
         email: "",
         password: "",
@@ -14,7 +20,12 @@ const SignIn = () => {
 
     const handleFormSubmit = async(e) => {
         e.preventDefault();
-        console.log('I work')
+        const response = await signIn(values);
+        localStorage.setItem("token", response.data.user.token);
+        updateToken(response.data.user.token)
+
+        navigate('/main');
+
     }
 
     const handleInputValue = (e) => {
