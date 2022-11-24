@@ -9,30 +9,31 @@ import { ArticleContext } from '../../../../contexts/articleContext';
 
 const Article = (props) => {
    const value = props.article;
-//    const [a, setValue] = useState(value.favoritesCount);
+   const [a, setValue] = useState("");
    let date1 = new Date(value.createdAt)+" ";
    date1= date1.slice(0,16);
    const [clicked, setClicked] = useState(value.favorited);
    console.log(clicked);
-   const {favoriteArticle, unFavoriteArticle, getUser, getFavorited} = useContext(UserContext)
+   const {favoriteArticle, unFavoriteArticle, getFavorited} = useContext(UserContext)
    const {token} = useContext(AuthContext);
    const handleClick = (val) =>{
-    //     if(token){
-    //         setClicked(!clicked);
+        if(token){
+            setClicked(!clicked);
 
-    //         if(clicked){
-    //             setValue(a-1);
-    //             unFavoriteArticle(val)
-    //         }else{
-    //             setValue(a+1);
-    //            favoriteArticle(val);
-    //         }
-    //         getFavorited();
-    //    }
+            if(clicked){
+                setValue(a-1);
+                unFavoriteArticle(val)
+            }else{
+                setValue(a+1);
+               favoriteArticle(val);
+            }
+            getFavorited();
+       }
    }
-//    useEffect( () => {
-//       getData();
-//   }, [clicked]);
+   useEffect( () => {
+    setValue(value.favoritesCount)
+    setClicked(value.favorited);
+  }, [props.article]);
     return (
         <div className="article">
             <div className="article-first-part">
@@ -48,7 +49,7 @@ const Article = (props) => {
                 <div className = "favorites">
                       <Button variant = {`${!clicked ? "outlined" : "contained" }`} color = "success" onClick = {() => handleClick(value.slug)}> 
                         <FavoriteBorderSharpIcon style = {{color: `${!clicked ? "green" : "white"}`}}/>
-                        {value.favoritesCount}
+                        {a}
                      </Button>
                 </div>
             </div>

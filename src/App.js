@@ -15,8 +15,8 @@ import NewPost from './components/user/newPost';
 import UserProfile from './components/user/userProfile';
 
 function App() {
-  const {token } = useContext(AuthContext)
-
+  // const {token} = useContext(AuthContext)
+  const token = localStorage.getItem('token');
   if(token){
     axios.defaults.headers.common["authorization"] = `Token `+token;
   }
